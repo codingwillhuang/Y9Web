@@ -1,0 +1,46 @@
+<html>
+<head>
+<h1> Javascript Challenge! </h1>
+
+<style>
+	h1 {
+		text-align: center;
+	}
+</style>
+
+<style>
+body {
+	background-image: linear-gradient(to bottom right, lightblue, lightgreen);
+	}
+	</style>
+</head>
+
+<body>
+	
+<img id="starry" width="600" height="600"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Starry Night">
+
+<canvas id="myCanvas" width="650" height="650"
+style="border:1px solid #d3d3d3;">
+</canvas>
+
+	
+<p id="demo">JavaScript can change HTML content.</p>
+
+	<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+
+<script>
+
+window.onload = function() {
+	  var canvas = document.getElementById("myCanvas");
+	  var ctx = canvas.getContext("2d");
+	  var img = document.getElementById("starry");
+	  ctx.drawImage(img, 10, 10);
+	};
+
+</script>
+	
+</body>
+
+</html>
