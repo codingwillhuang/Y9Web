@@ -1,34 +1,7 @@
 data =[
 
 
-{
-  "dimension": [
-                 {
-                   "label": "GHO",
-                   "display": "Indicator"
-                 },
-                 {
-                   "label": "PUBLISHSTATE",
-                   "display": "PUBLISH STATES"
-                 },
-                 {
-                   "label": "YEAR",
-                   "display": "Year"
-                 },
-                 {
-                   "label": "REGION",
-                   "display": "WHO region"
-                 },
-                 {
-                   "label": "COUNTRY",
-                   "display": "Country"
-                 },
-                 {
-                   "label": "SEX",
-                   "display": "Sex"
-                 }
-               ],
-    "fact": [
+
               {
                 "dims": {
                           "COUNTRY": "Afghanistan",

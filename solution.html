@@ -10,17 +10,46 @@ body{
 
 }
 
-h1{
+#navbar {
 	text-align: center;
 	padding-bottom: 10px;
-	text-decoration: overline;
+}
 
+#subtitle{
+	font-size: 50px;
+}
+#subtext{
+	font-size: 25px;
+}
 
 </style>
 </head>
 <body>
-<a href="index.html"><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px"></a>
+<h1 id="navbar">Homosapien Homocides</h1>
+<a href="index.html"><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px" class: left;"></a>
+<hr>
 
-<h1>Homosapien Homocides</h1>
+<br>
+
+<h1 id="subtitle">What are the homicide rates in this country?</h1>
+<h1 id="subtext">Homicide rates per 100 000 people. <br> Please select a country and gender.</h1>
+<select id="pulldown">
+	
+</select>
+
+<script src="data.json"></script>
+<script type="text/javascript">
+	
+	i=0;
+        str="<option value='pick'>Pick A Country</option>";
+        while(i<data.length){
+            var v=data[i].dims.COUNTRY;
+            str=str+ "<option value=" + v + ">" + v +"</option>" 
+            i=i+15;
+        }
+        document.getElementById("pulldown").innerHTML=str
+
+</script>
+
 </body>
 </html>
