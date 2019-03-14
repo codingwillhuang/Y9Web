@@ -12,7 +12,8 @@ body{
 
 #navbar {
 	text-align: center;
-	padding-bottom: 10px;
+	position:fixed;
+	top:20px;
 }
 
 #subtitle{
@@ -25,29 +26,58 @@ body{
 </style>
 </head>
 <body>
-<h1 id="navbar">Homosapien Homocides</h1>
-<a href="index.html"><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px" class: left;"></a>
+<a href="index.html"><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px" class: left;" style="display: inline;"></a>
+<h1 id="navbar" style="display: inline; margin-left: 460px;">Homosapien Homocides</h1>
 <hr>
 
 <br>
 
 <h1 id="subtitle">What are the homicide rates in this country?</h1>
 <h1 id="subtext">Homicide rates per 100 000 people. <br> Please select a country and gender.</h1>
-<select id="pulldown">
-	
+<select id="pulldown" onchange="Gdata()" >
+	</select>
+
+<select id="pulldown2">
+	str="<option value='pick1'>Pick A Gender</option>";
+	<option value="Male">Male</option>
+	<option value="Female">Female</option>
 </select>
+<br>
+<canvas id="canvas"></canvas>
 
 <script src="data.json"></script>
-<script type="text/javascript">
-	
+<script type="text/javascript">	
 	i=0;
         str="<option value='pick'>Pick A Country</option>";
         while(i<data.length){
             var v=data[i].dims.COUNTRY;
-            str=str+ "<option value=" + v + ">" + v +"</option>" 
+            str=str+ "<option value=" + "'"+ v + "'"+ ">" + v +"</option>" 
             i=i+15;
         }
         document.getElementById("pulldown").innerHTML=str
+
+
+    
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+
+    function Gdata(){
+    var option=document.getElementById("pulldown");
+    var country=option.value;
+    for(i=0; i<data.length;i=i+15){
+    	if(data[i].dims.COUNTRY==country){
+    		var homicide = data[i].Value;
+    		homicide=parseFloat(homicide);
+    		console.log(homicide)
+    		break
+    	}
+    }
+    ctx.fillStyle="white";
+    ctx.fillRect(0,0,300,500)
+    ctx.fillStyle="red";
+    ctx.fillRect(0,20,homicide*10,10);
+	}
+
 
 </script>
 
