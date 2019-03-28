@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Homosapien Homocides</title>
 <style type="text/css">
 
 body{
 	font-family: garamond;
-
-
 }
 
 #navbar {
@@ -21,33 +20,57 @@ body{
 }
 #subtext{
 	font-size: 25px;
+	font-family: Garamond;
+	color: grey;
+	border-left: 3px solid #0080ff ;
+  	background-color: #cce6ff;
+ 
 }
+#logo{
+	top: 20px;
+
+}#pulldown2{
+	margin-left:350px;
+	
+
+}
+
 
 </style>
 </head>
+
 <body>
-<a href="index.html"><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px" class: left;" style="display: inline;"></a>
+<a href="index.html" id="logo" ><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px" class: left;" style="display: inline;"></a>
+
 <h1 id="navbar" style="display: inline; margin-left: 460px;">Homosapien Homocides</h1>
 <hr>
 
-<br>
-
 <h1 id="subtitle">What are the homicide rates in this country?</h1>
 <h1 id="subtext">Homicide rates per 100 000 people. <br> Please select a country and gender.</h1>
-<select id="pulldown" onchange="Gdata()" >
-	</select>
 
-<select id="pulldown2">
-	str="<option value='pick1'>Pick A Gender</option>";
+
+<div class="custom-select" style="width:200px;">
+<select id="pulldown">
+</select>
+
+<select id="pulldown2"> 
+	<option value='pick1'>Pick A Sex</option>;
+	<option value="Both sexes">Both sexes</option>
 	<option value="Male">Male</option>
 	<option value="Female">Female</option>
-</select>
-<br>
+</select> 
+</div> 
+
+
+
+<button type="button" onclick="Gdata()">GO</button>
+
+
 <canvas id="canvas"></canvas>
 
 <script src="data.json"></script>
 <script type="text/javascript">	
-	i=0;
+	 i=0;
         str="<option value='pick'>Pick A Country</option>";
         while(i<data.length){
             var v=data[i].dims.COUNTRY;
@@ -56,30 +79,38 @@ body{
         }
         document.getElementById("pulldown").innerHTML=str
 
-
-    
     var canvas=document.getElementById("canvas");
     var ctx=canvas.getContext("2d");
 
     function Gdata(){
     var option=document.getElementById("pulldown");
     var country=option.value;
-    for(i=0; i<data.length;i=i+15){
+    var option2=document.getElementById("pulldown2")
+    var sex=option2.value;
+
+
+    for(i=0; i<data.length;i=i+1){
     	if(data[i].dims.COUNTRY==country){
-    		var homicide = data[i].Value;
-    		homicide=parseFloat(homicide);
-    		console.log(homicide)
-    		break
+    		if(data[i].dims.SEX==sex){
+    			var homicide = data[i].Value;
+    			homicide=parseFloat(homicide);
+    			console.log(homicide)
+    			break
+    		}
     	}
     }
     ctx.fillStyle="white";
-    ctx.fillRect(0,0,300,500)
+    ctx.fillRect(0,0,500,500)
     ctx.fillStyle="red";
-    ctx.fillRect(0,20,homicide*10,10);
+    ctx.fillRect(100,0,20,homicide*10);
 	}
-
 
 </script>
 
+<hr>
+
+<h1 id="subtitle">How does your country compare to others?</h1>
+<h1 id="subtext">Homicide rates per 100 000 people. <br> Please select a country to be compared with Canada.</h1>
+<
 </body>
 </html>
