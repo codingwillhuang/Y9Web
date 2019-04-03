@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Homosapien Homocides</title>
 <style type="text/css">
 
@@ -9,10 +10,72 @@ body{
 	font-family: garamond;
 }
 
-#navbar {
-	text-align: center;
-	position:fixed;
-	top:20px;
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #80ffaa;
+}
+.active2{
+  background-color: #555;
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
 }
 
 #subtitle{
@@ -29,27 +92,124 @@ body{
 #logo{
 	top: 20px;
 
-}#pulldown2{
-	margin-left:350px;
-	
+}
+#pulldown{
+	background-color: #66ff99;
+}
+#pulldown2{
+	margin-left:325px;
+	background-color: #66ff99;
+	position: absolute;
+	top:254px;
+	left:-10px;
+}
+#pulldown3{
+	background-color: #66ff99;
+}
+.button1{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	border-radius: 12px
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: auto;
+	-webkit-transition-duration: 0.7s; /* Safari */
+	transition-duration: 0.7s;
+	cursor: pointer;
+}
+
+.button1{
+	background-color: white; 
+	position: absolute;
+	color: black; 
+	border: 2px solid #66ff99;
+	top:320px;
 
 }
 
+.button1:hover {
+	background-color: #66ff99;
+	color: white;
+}
+.button2{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	border-radius: 12px
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: auto;
+	-webkit-transition-duration: 0.7s; /* Safari */
+	transition-duration: 0.7s;
+	cursor: pointer;
+}
+
+.button2{
+	background-color: white; 
+	position: absolute;
+	color: black; 
+	left: 7px;
+	border: 2px solid #66ff99;
+	top:830px;
+
+}
+
+.button2:hover {
+	background-color: #66ff99;
+	color: white;
+}
+
+  		
 
 </style>
 </head>
 
 <body>
-<a href="index.html" id="logo" ><img src="https://res.cloudinary.com/teepublic/image/private/s--h6QhYL3G--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488083104/production/designs/1267066_1.jpg" width="100px" class: left;" style="display: inline;"></a>
 
-<h1 id="navbar" style="display: inline; margin-left: 460px;">Homosapien Homocides</h1>
-<hr>
+<div class="navbar">
+  <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+  <a onclick="myFunction()" id = "myAbout"><i class="fa fa-fw fa-user"></i> About</a> 
+  <a onclick="myFunction()" id = "myHelp"><i class="fa fa-fw fa-search"></i> Help</a> 
+  <a class="active2" href="changestodesign.html"><i class="fa fa-fw fa-envelope"></i> Changes To Design</a>
+</div>
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p> Homosapien Homocides is a UCC student made project. The following website is a computer science project designed to transform tabular JSON data from the WHO Organization into a graphic.  </p>
+    <br>
+    This particular data is about homicide rates per 100 000 people according to country and sex.
+  </div>
+
+</div>
+
+<div id="myModal2" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>The Homosapien Homocides website is structured with the interactive functions on the left that produce the graphics on the right. The first section of the homepage is the individual country data about homicide rate by country and sex. To use this function, follow the steps below the header "What are the homicide rates in this country?". The next function is a comparison between Canada and any country. Please select a country other than Canada to see data comparison.</p>
+    <br>
+	<p>Have any other questions or concerns? My email is will.huang@ucc.on.ca and phone number is 416-722-0468.</p>
+  </div>
+
+</div>
+
+
+
 
 <h1 id="subtitle">What are the homicide rates in this country?</h1>
-<h1 id="subtext">Homicide rates per 100 000 people. <br> Please select a country and gender.</h1>
+<h1 id="subtext">Homicide rates per 100 000 people. Statistics from 2016.<br> Please select a country and sex and then press the button.</h1>
 
 
-<div class="custom-select" style="width:200px;">
+<div class="custom-select" style="width:400px;">
 <select id="pulldown">
 </select>
 
@@ -61,56 +221,133 @@ body{
 </select> 
 </div> 
 
+<button class="button1"  onclick="Gdata()">Develop Data</button>
 
 
-<button type="button" onclick="Gdata()">GO</button>
+<canvas id="canvas" style = 100%></canvas>
 
 
-<canvas id="canvas"></canvas>
+
+<hr>
+
+<h1 id="subtitle">How does your country compare to others?</h1>
+<h1 id="subtext">Homicide rates per 100 000 people. Statistics from 2016.<br> Please select a country to be compared with Canada and then press the button.</h1>
+
+<img src="https://www.worldatlas.com/r/w480/img/flag/ca-flag.jpg" width="100px"/>
+<h2>And</h2>
+<select id="pulldown3">
+
+</select>
+<br>
+<canvas id="canvas2" style=100%></canvas>
+<button class="button2" type="button" onclick="Gdata2()">Develop Data</button>
+
 
 <script src="data.json"></script>
-<script type="text/javascript">	
+<script type="text/javascript">
+
+
+
 	 i=0;
-        str="<option value='pick'>Pick A Country</option>";
+        var str ="<option value='pick'>Pick A Country</option>";
         while(i<data.length){
             var v=data[i].dims.COUNTRY;
             str=str+ "<option value=" + "'"+ v + "'"+ ">" + v +"</option>" 
             i=i+15;
         }
         document.getElementById("pulldown").innerHTML=str
+        document.getElementById("pulldown3").innerHTML=str
 
     var canvas=document.getElementById("canvas");
+    canvas.width = 1000;
     var ctx=canvas.getContext("2d");
 
     function Gdata(){
-    var option=document.getElementById("pulldown");
-    var country=option.value;
-    var option2=document.getElementById("pulldown2")
-    var sex=option2.value;
+    	var option=document.getElementById("pulldown");
+    	var country=option.value;
+    	var option2=document.getElementById("pulldown2")
+    	var sex=option2.value;
+    	var option3=document.getElementById("pulldown3")
 
 
     for(i=0; i<data.length;i=i+1){
     	if(data[i].dims.COUNTRY==country){
+    		console.log(sex + " " + country);
+
     		if(data[i].dims.SEX==sex){
     			var homicide = data[i].Value;
     			homicide=parseFloat(homicide);
     			console.log(homicide)
+    			ctx.fillStyle="black";
+    			ctx.strokeRect(400,50,2000,20)
+    			ctx.fillStyle="#f2f2f2";
+    			ctx.fillRect(400,50,2000,20)
+    			ctx.fillStyle= "#ff4d4d";
+    			ctx.fillRect(400,50,homicide*12,20);
     			break
+
     		}
     	}
     }
-    ctx.fillStyle="white";
-    ctx.fillRect(0,0,500,500)
-    ctx.fillStyle="red";
-    ctx.fillRect(100,0,20,homicide*10);
-	}
+ 	}
 
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var about = document.getElementById("myAbout");
+
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+about.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+var modal2 = document.getElementById('myModal2');
+
+// Get the button that opens the modal
+var help = document.getElementById("myHelp");
+
+var span2 = document.getElementsByClassName("close")[1];
+
+// When the user clicks on the button, open the modal 
+help.onclick = function() {
+  modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window2.onclick = function(event) {
+  if (event.target == modal) {
+    modal2.style.display = "none";
+  }
+}
+
+ function Gdata2(){
+ 	var canvas2=document.getElementById("canvas2");
+ 	var ctx2=canvas2.getContext("2d");
+
+ 	ctx.fillStyle="#ff4d4d";
+ 	ctx.fillRect(200,60,18,20)
+
+ }
+    
 </script>
-
-<hr>
-
-<h1 id="subtitle">How does your country compare to others?</h1>
-<h1 id="subtext">Homicide rates per 100 000 people. <br> Please select a country to be compared with Canada.</h1>
-<
 </body>
 </html>
