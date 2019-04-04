@@ -127,7 +127,8 @@ body{
 	position: absolute;
 	color: black; 
 	border: 2px solid #66ff99;
-	top:320px;
+	top:240px;
+	left: 440px;
 
 }
 
@@ -155,9 +156,9 @@ body{
 	background-color: white; 
 	position: absolute;
 	color: black; 
-	left: 7px;
+	left: 350px;
 	border: 2px solid #66ff99;
-	top:830px;
+	top:750px;
 
 }
 
@@ -165,6 +166,7 @@ body{
 	background-color: #66ff99;
 	color: white;
 }
+
 
   		
 
@@ -203,8 +205,6 @@ body{
 </div>
 
 
-
-
 <h1 id="subtitle">What are the homicide rates in this country?</h1>
 <h1 id="subtext">Homicide rates per 100 000 people. Statistics from 2016.<br> Please select a country and sex and then press the button.</h1>
 
@@ -224,7 +224,7 @@ body{
 <button class="button1"  onclick="Gdata()">Develop Data</button>
 
 
-<canvas id="canvas" style = 100%></canvas>
+<canvas id="canvas" ></canvas>
 
 
 
@@ -233,13 +233,17 @@ body{
 <h1 id="subtitle">How does your country compare to others?</h1>
 <h1 id="subtext">Homicide rates per 100 000 people. Statistics from 2016.<br> Please select a country to be compared with Canada and then press the button.</h1>
 
-<img src="https://www.worldatlas.com/r/w480/img/flag/ca-flag.jpg" width="100px"/>
+<img src="https://www.worldatlas.com/r/w480/img/flag/ca-flag.jpg" width="100px" position="fixed";/>
+
+
 <h2>And</h2>
 <select id="pulldown3">
-
 </select>
+
 <br>
-<canvas id="canvas2" style=100%></canvas>
+<canvas id="canvas2" ></canvas>
+
+
 <button class="button2" type="button" onclick="Gdata2()">Develop Data</button>
 
 
@@ -265,9 +269,8 @@ body{
     function Gdata(){
     	var option=document.getElementById("pulldown");
     	var country=option.value;
-    	var option2=document.getElementById("pulldown2")
+    	var option2=document.getElementById("pulldown2");
     	var sex=option2.value;
-    	var option3=document.getElementById("pulldown3")
 
 
     for(i=0; i<data.length;i=i+1){
@@ -278,18 +281,83 @@ body{
     			var homicide = data[i].Value;
     			homicide=parseFloat(homicide);
     			console.log(homicide)
+    			ctx.fillStyle = "white";
+    			ctx.fillRect(0,0,4000,4000);
     			ctx.fillStyle="black";
-    			ctx.strokeRect(400,50,2000,20)
+    			ctx.strokeRect(160,50,2000,20)
     			ctx.fillStyle="#f2f2f2";
-    			ctx.fillRect(400,50,2000,20)
-    			ctx.fillStyle= "#ff4d4d";
-    			ctx.fillRect(400,50,homicide*12,20);
+    			ctx.fillRect(160,50,2000,20)
+    			ctx.fillStyle="black";
+    			ctx.font="20px Garamond";
+				ctx.fillText(country,0,65);
+				ctx.fillText(homicide,120, 65)
+				
     			break
 
     		}
     	}
     }
- 	}
+
+async function cool1(){
+	for(i=1;i<401;i++){
+        ctx.fillStyle= "#ff4d4d";
+    	ctx.fillRect(160,50,(homicide*12)/400*i,20);
+await sleep1(5);
+                    }
+
+}cool1();
+    
+}
+
+function sleep1(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+
+function Gdata2(){
+ 	var canvas2=document.getElementById("canvas2");
+ 	canvas2.width = 1000;
+ 	var ctx2=canvas2.getContext("2d");
+ 	var option3 = document.getElementById("pulldown3");
+ 	var country2=option3.value;
+
+ 	for(i=0; i<data.length;i=i+1){
+    	if(data[i].dims.COUNTRY==country2){
+ 
+
+    			var homicide = data[i].Value;
+    			homicide=parseFloat(homicide);
+    			console.log(homicide)
+    			ctx2.fillStyle="black";
+    			ctx2.strokeRect(160,100,2000,20)
+    			ctx2.fillStyle="#f2f2f2";
+    			ctx2.fillRect(160,100,2000,20)
+    			ctx2.fillStyle= "#6699ff";
+    			ctx2.fillRect(160,100,homicide*12,20);
+    			ctx2.fillStyle="black";
+    			ctx2.font="20px Garamond";
+				ctx2.fillText(country2,0,115);
+				ctx2.fillText(homicide,120, 115)
+    			break
+
+    		
+    	}
+    }
+    ctx2.fillStyle="black";
+    ctx2.strokeRect(160,50,2000,20)
+   	ctx2.fillStyle="#f2f2f2";
+    ctx2.fillRect(160,50,2000,20)
+ 	ctx2.fillStyle="#ff4d4d";
+ 	ctx2.fillRect(160,50,18,20);
+ 	ctx2.fillStyle = "black";
+ 	ctx2.font="20px Garamond";
+	ctx2.fillText("Canada",0,65);
+	ctx2.fillText("1.5",120, 65)
+
+
+ }
+
+
 
 var modal = document.getElementById('myModal');
 
@@ -339,14 +407,7 @@ window2.onclick = function(event) {
   }
 }
 
- function Gdata2(){
- 	var canvas2=document.getElementById("canvas2");
- 	var ctx2=canvas2.getContext("2d");
-
- 	ctx.fillStyle="#ff4d4d";
- 	ctx.fillRect(200,60,18,20)
-
- }
+ 
     
 </script>
 </body>
