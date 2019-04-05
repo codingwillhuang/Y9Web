@@ -333,8 +333,7 @@ function Gdata2(){
     			ctx2.strokeRect(160,100,2000,20)
     			ctx2.fillStyle="#f2f2f2";
     			ctx2.fillRect(160,100,2000,20)
-    			ctx2.fillStyle= "#6699ff";
-    			ctx2.fillRect(160,100,homicide*12,20);
+    			
     			ctx2.fillStyle="black";
     			ctx2.font="20px Garamond";
 				ctx2.fillText(country2,0,115);
@@ -348,14 +347,21 @@ function Gdata2(){
     ctx2.strokeRect(160,50,2000,20)
    	ctx2.fillStyle="#f2f2f2";
     ctx2.fillRect(160,50,2000,20)
- 	ctx2.fillStyle="#ff4d4d";
- 	ctx2.fillRect(160,50,18,20);
+ 	
  	ctx2.fillStyle = "black";
  	ctx2.font="20px Garamond";
 	ctx2.fillText("Canada",0,65);
 	ctx2.fillText("1.5",120, 65)
 
-
+	async function cool2(){
+		for(i=1;i<401;i++){
+			ctx2.fillStyle="#ff4d4d";
+ 			ctx2.fillRect(160,50,18/400*i,20);
+ 			ctx2.fillStyle= "#6699ff";
+    		ctx2.fillRect(160,100,(homicide*12)/400*i,20);
+    		await sleep1(5);
+		}
+	}cool2()
  }
 
 
